@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import { db } from '@/db'
 
 export default function SnippetCreatePage() {
@@ -16,38 +17,41 @@ export default function SnippetCreatePage() {
       code
     }
    })
+   //console.log(snippet)
    
    // Redirect the user back to the root route.
+   redirect('/')
  }
 
-return
-  <form>
-    <h3 className="font-bold m-3">Create a Snippet</h3>
-    <div className="flex flex-col gap-4">
-      <div className=" flex gap-4">
-        <lable className="w-12" htmlFor="title">
-          Title
-        </lable>
-        <input
-        name="title"
-        className="border rounded p-2 w-full"
-	      id="title"
-        />
-      </div>
-      <div className="flex gap-4">
-        <lable className="w-12" htmlFor="code">
-          Code
-        </lable>
-        <textarea
-          name="code"
+  return (
+    <form action={createSnippet}>
+      <h3 className="font-bold m-3">Create a Snippet</h3>
+      <div className="flex flex-col gap-4">
+        <div className=" flex gap-4">
+          <lable className="w-12" htmlFor="title">
+           Title
+          </lable>
+          <input
+          name="title"
           className="border rounded p-2 w-full"
-          id="code"
-        />
+	        id="title"
+          />
+        </div>
+        <div className="flex gap-4">
+          <lable className="w-12" htmlFor="code">
+            Code
+          </lable>
+          <textarea
+            name="code"
+            className="border rounded p-2 w-full"
+            id="code"
+          />
+        </div>
+        <button type="submit" className="rounded p-2 bg-blue-200">
+          submit
+        </button>
       </div>
-      <button type="submit" className="rounded p-2 bg-blue-200">
-        submit
-      </button>
-    </div>
-  </form> 
+    </form> 
+  )
 }
 
