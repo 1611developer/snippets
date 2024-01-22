@@ -48,7 +48,7 @@ export default function SnippetCreatePage() {
           />
         </div>
         <button type="submit" className="rounded p-2 bg-blue-200">
-          submit
+          submit button
         </button>
       </div>
     </form> 
